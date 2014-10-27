@@ -1,0 +1,29 @@
+def comb(n, result, balance):
+	if n==0:
+		return result
+	if n>0:
+		if len(result)==0:
+			return comb(n-0.5,'(', 1)
+		else:
+			if balance==0:
+				return comb(n-0.5, result+'(', balance+1)
+			else:
+				comb(n-0.5,result+')',balance-1)
+				comb(n-0.5,result+'(',balance+1)
+				
+
+
+
+
+
+def bubbleSort(lis):
+	for i in xrange(0, len(lis), 1):
+		for j in xrange(i+1, len(lis), 1):
+			m = min(lis[i],lis[j])
+			tmp=lis[i]
+			m=lis[i]
+			lis[j]=tmp
+	return lis
+
+
+

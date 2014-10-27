@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ebola prevent ebola">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+    <title>PreventEbola.org</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/assets/css/main.css" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+    <script src="static/assets/js/jquery.min.js"></script>
+	<script src="static/assets/js/modernizr.custom.js"></script>
+	
+
+	
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#theMenu">
+		
+
+
+	
+	<!-- ========== HEADER SECTION ========== -->
+	<section id="home" name="home"></section>
+	<div id="headerwrap">
+		<div class="container">
+			<div class="logo">
+				
+			</div>
+			<br>
+			<div class="row">
+				<h1>PREVENT EBOLA</h1>
+				<br>
+				<h3>Get The Whole Picture.</h3>
+				<br>
+				<br>
+				<div class="col-lg-6 col-lg-offset-3">
+				</div>
+			</div>
+		</div><!-- /container -->
+	</div><!-- /headerwrap -->
+
+	
+	{% for article in articles %}	
+
+
+
+
+
+	<!-- ========== ABOUT SECTION ========== -->
+	<section id="about" name="about"></section>
+	<div id="f">
+		<div class="container">
+			<div class="row">
+				<h3>{{article['title']}} / {{article['site']}}</h3>
+				<p><b>{{article['published']}}</b></p>
+				{% if article['site']=='BBC' %}
+				<p class="centered"><img src="{{article['media_thumbnail'][0]['url']}}"  class="img-circle"></p>
+				{% else %}
+				<p class="centered"><img src="static/assets/img/ebola.jpg"  style="width:70px" class="img-circle"></p>
+				{% endif %}
+
+				<!-- INTRO INFORMATIO-->
+				<div class="col-lg-6 col-lg-offset-3">
+				{% if article['site']=='BBC' %}
+					<p>{{article['summary']}}</p>
+				{% endif %}
+		
+					<p><button onclick="window.location.href='{{article['links'][0]['href']}}'" type="button" class="btn btn-warning">READ FULL ARTICLE</button></p>
+				</div>								
+			</div>
+		</div><!-- /container -->
+	</div><!-- /f -->
+	
+	{% endfor %}
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="assets/js/classie.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/smoothscroll.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-46144045-5', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+</body>
+</html>
